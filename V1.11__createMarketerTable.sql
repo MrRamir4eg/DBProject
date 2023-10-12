@@ -1,5 +1,5 @@
 create table marketer(
-	assignment_id bigint,
+	id bigint,
 	name varchar,
 	password varchar
 );
