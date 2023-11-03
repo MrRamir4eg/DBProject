@@ -1,1 +1,0 @@
-alter table reviews add constraint review_content_length_check check(length(content) > 3 and length(content) < 256);
