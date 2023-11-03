@@ -1,0 +1,1 @@
+alter table material add constraint subject_length check (length(subject) between 1 and 50);

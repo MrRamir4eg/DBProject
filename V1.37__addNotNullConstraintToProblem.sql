@@ -1,0 +1,1 @@
+alter table problem add constraint not_null check ((subject is not null) and (curator_id is not null));

@@ -1,0 +1,1 @@
+alter table student add constraint valid_student check ((length(name) between 1 and 50) and (length(email) between 1 and 100));
