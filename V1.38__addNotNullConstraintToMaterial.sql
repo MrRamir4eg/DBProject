@@ -1,0 +1,1 @@
+alter table material add constraint not_null check (subject is not null);

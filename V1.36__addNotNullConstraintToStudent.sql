@@ -1,0 +1,1 @@
+alter table student add constraint not_null check ((name is not null) and (email is not null) and (password is not null));
