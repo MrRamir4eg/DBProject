@@ -1,0 +1,1 @@
+alter table message add constraint check_content_message check (content is not null);

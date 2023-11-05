@@ -1,0 +1,2 @@
+alter table teacher add constraint check_name_teacher check ((name is not null) and (length(name) between 1 and 50));
+alter table teacher add constraint check_subject_teacher check ((subject is not null) and (length(subject) between 1 and 30));
