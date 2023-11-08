@@ -1,0 +1,2 @@
+alter table accountant add constraint check_name_accountant check ((name is not null) and (length(name) between 1 and 50));
+alter table accountant add constraint check_password_accountant check ((password is not null) and (length(password) between 8 and 30));
