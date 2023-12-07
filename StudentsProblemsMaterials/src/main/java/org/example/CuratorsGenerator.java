@@ -20,7 +20,7 @@ public class CuratorsGenerator {
     public static void generateCurators(int n) {
         try (Connection connection = DatabaseConnection.getConnection()) {
             for (int i = 0; i < n; i++) {
-                PreparedStatement statement = connection.prepareStatement("insert into curator (id, email, password) VALUES (?, ?, ?)");
+                PreparedStatement statement = connection.prepareStatement("insert into curator (email, password) VALUES (?, ?)");
                 Name nameMe = Faker.instance().name();
                 String name = nameMe.name();
                 String email = Arrays.stream(name.split(" ")).map((s) -> s.toLowerCase())
@@ -28,9 +28,8 @@ public class CuratorsGenerator {
 
                 String password = DatatypeConverter.printHexBinary(MessageDigest.getInstance("MD5")
                         .digest((name + ' ' + email).getBytes()));
-                statement.setLong(1, 2909);
-                statement.setString(2, email);
-                statement.setString(3, password);
+                statement.setString(1, email);
+                statement.setString(2, password);
                 statement.executeUpdate();
             }
         } catch (SQLException | ClassNotFoundException | NoSuchAlgorithmException e) {

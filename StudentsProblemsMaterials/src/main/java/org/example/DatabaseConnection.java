@@ -10,9 +10,9 @@ public class DatabaseConnection {
     public static Connection getConnection() throws SQLException, ClassNotFoundException {
         if (connection == null || connection.isClosed()) {
             connection = DriverManager.getConnection(
-                    "jdbc:postgresql://localhost:5432/DBProject",
+                    "jdbc:postgresql://localhost:5432/project",
                     "postgres",
-                    "ghbdtn_z_flvby"
+                    "stilinski"
             );
         }
         return connection;

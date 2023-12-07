@@ -21,16 +21,17 @@ public class StudentsGenerator {
     public static void generateStudents(int n) {
         try (Connection connection = DatabaseConnection.getConnection()) {
             for (int i = 0; i < n; i++) {
-                PreparedStatement statement = connection.prepareStatement("insert into student (email, password) VALUES (?, ?)");
+                PreparedStatement statement = connection.prepareStatement("insert into student (name, email, password) VALUES (?, ?, ?)");
                 Name nameMe = Faker.instance().name();
                 String name = nameMe.name();
                 String email = Arrays.stream(name.split(" ")).map((s) -> s.toLowerCase())
-                        .collect(Collectors.joining(".")) + (new Random().nextInt(0, 404)) + emails[new Random().nextInt(emails.length)];
+                        .collect(Collectors.joining(".")) + emails[new Random().nextInt(emails.length)];
 
                 String password = DatatypeConverter.printHexBinary(MessageDigest.getInstance("MD5")
                         .digest((name + ' ' + email).getBytes()));
-                statement.setString(1, email);
-                statement.setString(2, password);
+                statement.setString(1, name);
+                statement.setString(2, email);
+                statement.setString(3, password);
                 statement.executeUpdate();
             }
         } catch (SQLException | ClassNotFoundException | NoSuchAlgorithmException e) {
