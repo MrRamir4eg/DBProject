@@ -1,4 +1,4 @@
-insert into course (id, name, duration, price, subject)
+-- insert into course (id, name, duration, price, subject)
 select generate_series(1, 10000) as id,
 case
 		when random() < 0.1 then 'Павел Иванов'

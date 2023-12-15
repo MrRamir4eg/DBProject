@@ -1,4 +1,4 @@
-insert into groupp (id, course_id, name)
+-- insert into groupp (id, course_id, name)
 select generate_series(1, 10000) as id,
 case
 		when random() < 0.1 then (random()*10000)::int

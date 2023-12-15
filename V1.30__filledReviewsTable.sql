@@ -1,4 +1,4 @@
-insert into reviews (user_id, content)
+-- insert into reviews (user_id, content)
 select generate_series(1, 10000) as user_id,
 case
 		when random() < 0.1 then 'Преподаватели супер!'
